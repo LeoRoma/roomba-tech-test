@@ -1,0 +1,24 @@
+{
+  "name": "roomba-tech-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "room.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeoRoma/roomba-tech-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeoRoma/roomba-tech-test/issues"
+  },
+  "homepage": "https://github.com/LeoRoma/roomba-tech-test#readme"
+}
