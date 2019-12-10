@@ -12,14 +12,18 @@ describe("Room", () => {
   });
 
   test('get the position of the dirt', () => {
-    expect(room.getDirtPosition()).toEqual({ dP1: ['1', '0'], dP2: ['2', '2'], dP3: ['2', '3'] });
+    expect(room.getDirtPosition()).toEqual({
+      dP1: { x: '1', y: '0' },
+      dP2: { x: '2', y: '2' },
+      dP3: { x: '2', y: '3' }
+    });
   });
 
-  test('get the position of the dirt', () => {
+  test('get the start position', () => {
     expect(room.getHooverPositions()).toEqual({ x: 1, y: 2 });
   });
 
-  // test('get the position of the dirt', () => {
+  // test('get the steps', () => {
   //   expect(room.getDrivingInstructions()).toEqual ([
   //     'N', 'N', 'E', 'S',
   //     'E', 'E', 'S', 'W',
@@ -56,7 +60,14 @@ describe('moves', () => {
     expect(room.hooverPositions.x).toEqual(1);
     expect(room.hooverPositions.y).toEqual(3);
   });
-})
+});
+
+test('dirt patch collected', () => {
+  
+  room.moves('NNESEESWNWW');
+  room.cleanDirt();
+  expect(room.dirtCollect).toEqual(1);
+});
 
 
 });
