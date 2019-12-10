@@ -7,7 +7,7 @@ describe("Room", ()=>{
     room = new Room;
   });
 
-  test('first test', () => {
-    expect(room.string("hello")).toEqual ("hello");
+  test('get the size of the room', () => {
+    expect(room.getRoomDimension()).toEqual (['5', '5']);
   })
 })
