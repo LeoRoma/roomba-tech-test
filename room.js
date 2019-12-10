@@ -1,11 +1,19 @@
+const fs = require('fs');
+
+var txt = fs.readFileSync('./input.txt', 'utf8');
+console.log(txt);
+
+
 class Room {
-  constructor (){
+  constructor() {
     this.coordinates = {};
     this.hooverPosition = {};
     this.dirtPosition = {};
   }
-  
-  string(hello){
+
+
+
+  string(hello) {
     return hello = "hello";
   }
 }
