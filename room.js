@@ -1,6 +1,5 @@
 var fs = require('fs');
 var input = fs.readFileSync('input.txt').toString().split("\n");
-// console.log(input);
 
 var roomDimension = input[0].split(' ');
 var hooverPosition = input[1].split(' ');
@@ -8,16 +7,9 @@ var dirtPosition1 = input[2].split(' ');
 var dirtPosition2 = input[3].split(' ');
 var dirtPosition3 = input[4].split(' ');
 var drivingInstructions = input.slice(-1)[0].split('');
+console.log(drivingInstructions);
 
 // console.log(roomDimension);
-// for (i in input) {
-//   if(input[i].indexOf(' ') >= 0){
-//     coordinates.push(input[i]);
-//   } else {
-//     drivingInstructions.push(input[i]);
-//   };
-//   console.log(input[i]);
-// }
 
 class Room {
   constructor() {
@@ -32,14 +24,14 @@ class Room {
       y: hooverPosition[1],
     };
     this.drivingInstructions = drivingInstructions;
-    console.log(this.drivingInstructions)
+    // console.log(this.drivingInstructions)
   };
-  
+
 
   getRoomDimension() {
     return this.roomDimension;
   };
-  
+
   getDirtPosition() {
     return this.dirtPositions;
   };
@@ -50,6 +42,33 @@ class Room {
 
   getDrivingInstructions() {
     return this.drivingInstructions;
+  };
+
+  // drivingInstructionsFilter() {
+  //   for (i in this.drivingInstructions) {
+  //     // console.log(this.drivingInstructions[i]);
+  //   }
+  // };
+
+  moves(drivingInstructions) {
+    // console.log(drivingInstructions);
+    for (var i = 0; i < drivingInstructions.length; i++) {
+      var step = drivingInstructions[i];
+    };
+    // console.log(step);
+    if (step === 'N') {
+      this.hooverPositions.y++
+    }
+    if (step === 'S') {
+      this.hooverPositions.y--
+    }
+    if (step === 'E') {
+      this.hooverPositions.x++
+    }
+    if (step === 'W') {
+      this.hooverPositions.x--
+    }
+
   };
 
 }
