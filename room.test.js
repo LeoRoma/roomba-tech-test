@@ -30,44 +30,43 @@ describe("Room", () => {
   //     'N', 'W', 'W'
   //   ]);
   // });
-describe('moves', () => {
-  test('increase y by 1 step with N', () => {
-    room.moves('N');
-    expect(room.hooverPositions.x).toEqual(1);
-    expect(room.hooverPositions.y).toEqual(3);
+  describe('moves', () => {
+    test('increase y by 1 step with N', () => {
+      room.moves('N');
+      expect(room.hooverPositions.x).toEqual(1);
+      expect(room.hooverPositions.y).toEqual(3);
+    });
+
+    test('decrease y by 1 step with S', () => {
+      room.moves('S');
+      expect(room.hooverPositions.x).toEqual(1);
+      expect(room.hooverPositions.y).toEqual(1);
+    });
+
+    test('increase x by 1 step with E', () => {
+      room.moves('E');
+      expect(room.hooverPositions.x).toEqual(2);
+      expect(room.hooverPositions.y).toEqual(2);
+    });
+
+    test('decrease x by 1 step with W', () => {
+      room.moves('W');
+      expect(room.hooverPositions.x).toEqual(0);
+      expect(room.hooverPositions.y).toEqual(2);
+    });
+
+    test('all steps from the input', () => {
+      room.moves('NNESEESWNWW');
+      expect(room.hooverPositions.x).toEqual(1);
+      expect(room.hooverPositions.y).toEqual(3);
+    });
   });
 
-  test('decrease y by 1 step with S', () => {
-    room.moves('S');
-    expect(room.hooverPositions.x).toEqual(1);
-    expect(room.hooverPositions.y).toEqual(1);
-  });
-
-  test('increase x by 1 step with E', () => {
-    room.moves('E');
-    expect(room.hooverPositions.x).toEqual(2);
-    expect(room.hooverPositions.y).toEqual(2);
-  });
-
-  test('decrease x by 1 step with W', () => {
-    room.moves('W');
-    expect(room.hooverPositions.x).toEqual(0);
-    expect(room.hooverPositions.y).toEqual(2);
-  });
-
-  test('all steps from the input', () => {
+  xtest('dirt patch collected', () => {
     room.moves('NNESEESWNWW');
-    expect(room.hooverPositions.x).toEqual(1);
-    expect(room.hooverPositions.y).toEqual(3);
+    room.cleanDirt();
+    expect(room.dirtCollect).toEqual(1);
   });
-});
-
-test('dirt patch collected', () => {
-  
-  room.moves('NNESEESWNWW');
-  room.cleanDirt();
-  expect(room.dirtCollect).toEqual(1);
-});
 
 
 });

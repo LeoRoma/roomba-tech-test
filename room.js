@@ -58,7 +58,7 @@ class Room {
       x: hooverPositionToInt[0],
       y: hooverPositionToInt[1],
     };
-    // this.drivingInstructions = drivingInstructions;
+    this.drivingInstructions = drivingInstructions;
     // console.log(this.hooverPositions)
     // console.log(this.dirtPositions);
     this.dirtCollect = 0;
@@ -104,7 +104,7 @@ class Room {
 
   cleanDirt() {
 
-    if (this.hooverPositions.x == this.dirtPositions.dP3.x && this.hooverPositions.y == this.dirtPositions.dP3.y && this.dirtCollect == 0) {
+    if (this.hooverPositions.x == this.dirtPositions.dP3.x && this.hooverPositions.y == this.dirtPositions.dP3.y) {
       this.dirtCollect += 1;
     }
   };

@@ -1,0 +1,52 @@
+const Hoover = require('./hoover.js');7
+
+describe("Hoover", () => {
+  let hoover;
+  
+  beforeEach(() => {
+    hoover = new Hoover;
+  });
+
+  describe('moves', () => {
+    test('increase y by 1 step with N', () => {
+      hoover.moves('N');
+      expect(hoover.positions.x).toEqual(1);
+      expect(hoover.positions.y).toEqual(3);
+    });
+
+    test('decrease y by 1 step with S', () => {
+      hoover.moves('S');
+      expect(hoover.positions.x).toEqual(1);
+      expect(hoover.positions.y).toEqual(1);
+    });
+
+    test('increase x by 1 step with E', () => {
+      hoover.moves('E');
+      expect(hoover.positions.x).toEqual(2);
+      expect(hoover.positions.y).toEqual(2);
+    });
+
+    test('decrease x by 1 step with W', () => {
+      hoover.moves('W');
+      expect(hoover.positions.x).toEqual(0);
+      expect(hoover.positions.y).toEqual(2);
+    });
+
+    test('all steps from the input', () => {
+      hoover.moves('NNESEESWNWW');
+      expect(hoover.positions.x).toEqual(1);
+      expect(hoover.positions.y).toEqual(3);
+    });
+  });
+
+  xtest('dirt patch collected', () => {
+    hoover.moves('NNESEESWNWW');
+    hoover.cleanDirt();
+    expect(hoover.dirtCollect).toEqual(1);
+  });
+
+  
+});
+  
+
+ 
