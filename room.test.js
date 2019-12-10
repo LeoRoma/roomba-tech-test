@@ -16,7 +16,7 @@ describe("Room", () => {
   });
 
   test('get the position of the dirt', () => {
-    expect(room.getHooverPositions()).toEqual({ x: '1', y: '2' });
+    expect(room.getHooverPositions()).toEqual({ x: 1, y: 2 });
   });
 
   // test('get the position of the dirt', () => {
@@ -26,23 +26,37 @@ describe("Room", () => {
   //     'N', 'W', 'W'
   //   ]);
   // });
-
-  test('increase y by 1 with N', () => {
+describe('moves', () => {
+  test('increase y by 1 step with N', () => {
     room.moves('N');
+    expect(room.hooverPositions.x).toEqual(1);
     expect(room.hooverPositions.y).toEqual(3);
   });
-  test('decrease y by 1 with S', () => {
+
+  test('decrease y by 1 step with S', () => {
     room.moves('S');
+    expect(room.hooverPositions.x).toEqual(1);
     expect(room.hooverPositions.y).toEqual(1);
   });
-  test('increase x by 1 with E', () => {
+
+  test('increase x by 1 step with E', () => {
     room.moves('E');
     expect(room.hooverPositions.x).toEqual(2);
+    expect(room.hooverPositions.y).toEqual(2);
   });
-  test('decrease x by 1 with W', () => {
+
+  test('decrease x by 1 step with W', () => {
     room.moves('W');
     expect(room.hooverPositions.x).toEqual(0);
+    expect(room.hooverPositions.y).toEqual(2);
   });
+
+  test('all steps from the input', () => {
+    room.moves('NNESEESWNWW');
+    expect(room.hooverPositions.x).toEqual(1);
+    expect(room.hooverPositions.y).toEqual(3);
+  });
+})
 
 
 });
