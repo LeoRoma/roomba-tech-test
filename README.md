@@ -1,7 +1,9 @@
 # Description
 
--First tech-test from Tray.io
--The program is still uncomplete, the missing parts are: can't retrieve a patch of dirt, doesn't print the output and missing some tests.
+- First tech-test from Tray.io.
+- The program is completed.
+- All tests passing.
+- Prints the output on the terminal by running `node src/hoover.js` in the main folder.
 
 # Introduction
 Program that navigates an imaginary robotic hoover (much like a Roomba) through an equally imaginary room based on:
@@ -62,6 +64,6 @@ Program output should be printed to the standard output (STDOUT) of the terminal
 
 # Thoughts
 
-- To be my first tech-test I had a lot of fun even if I didn't completed, I felt that I learned a lot about Javascript ES6 and Jest, I faced new logics that I didn't face before.
+- To be my first tech-test I had a lot of fun, I felt that I learned a lot about Javascript ES6 and Jest, I faced new logics that I didn't face before.
 - I think I can improve with the data handle by using node.js modules.export to have a better architecture of the program.
 - The most important I have enjoyed.
