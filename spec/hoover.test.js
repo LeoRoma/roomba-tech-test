@@ -1,4 +1,4 @@
-const Hoover = require('./hoover.js'); 7
+const Hoover = require('../src/hoover.js'); 7
 
 describe("Hoover", () => {
   let hoover;
@@ -48,7 +48,7 @@ describe("Hoover", () => {
     });
   });
 
-  test('dirt patch collected', () => {
+  xtest('dirt patch collected', () => {
     hoover.moves('NNESEESWNWW');
     hoover.cleanDirt();
     expect(hoover.dirtCollect).toEqual(1);

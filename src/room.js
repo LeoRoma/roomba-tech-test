@@ -1,4 +1,4 @@
-const Dirt = require('./dirt')
+const Dirt = require('./dirt.js')
 // this.instanceOfDirt = new Dirt;
 
 var fs = require('fs');

@@ -1,4 +1,4 @@
-const Dirt = require('./dirt.js');
+const Dirt = require('../src/dirt.js');
 
 describe("Dirt", () => {
   let dirt;

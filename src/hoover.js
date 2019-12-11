@@ -27,9 +27,9 @@ class Hoover {
 
   moves(steps) {
     // console.log(steps.length)
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < steps.length; i++) {
       var step = steps[i];
-      this.cleanDirt();
+      // this.cleanDirt();
 
       if (step === 'N') {
         this.positions.y++
@@ -61,8 +61,6 @@ class Hoover {
   cleanDirt() {
 
     this.room.dirtPositions.forEach(patch => {
-      console.log(patch.x)
-      console.log(this.positions.x)
       if (this.positions.x === patch.x && this.positions.y === patch.y && this.amountOfDirt === 0) {
 
         this.room.dirtPositions.splice(this.room.dirtPositions.indexOf(patch, 1))

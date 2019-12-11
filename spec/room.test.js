@@ -1,4 +1,4 @@
-const Room = require('./room.js');
+const Room = require('../src/room.js');
 
 describe("Room", () => {
   let room;
