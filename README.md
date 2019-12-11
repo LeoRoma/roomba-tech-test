@@ -20,10 +20,10 @@ The goal of the program is to take the room dimensions, the locations of the dir
 # Input
 Program input will be received in a file with the format described here. You can process it however you like. The file will be named input.txt and reside in the same directory as your executable program/web page. Example:
 
-5 5
-1 2
-1 0
-2 2
+5 5<p>
+1 2<p>
+1 0<p>
+2 2<p>
 2 3
 NNESEESWNWW
 - the first line holds the room dimensions (X Y), separated by a single space (all coordinates will be presented in this format)
@@ -36,8 +36,8 @@ Program output should be printed to the standard output (STDOUT) of the terminal
 
 - The first line of your program output should display the X and Y coordinates marking the position of the hoover after processing all commands.
 - The second line of the program output should display the number of patches of dirt the robot cleaned up. Example (matching the input above):
--1 3
--1
+-1 3<p>
+-1<p>
 
 # Instructions
 
