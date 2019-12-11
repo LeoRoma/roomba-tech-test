@@ -4,10 +4,10 @@ var fs = require('fs');
 
 var input = fs.readFileSync('input.txt').toString().split("\n");
 
-let roomDimension = input[0].split(' ');
-let hooverPositionString = input[1].toString().split(' ');
-let dirtPositionsString = input.slice(2, -1).toString().split(',');
-let drivingInstructions = input.slice(-1)[0].split('');
+var roomDimension = input[0].split(' ');
+var hooverPositionString = input[1].toString().split(' ');
+var dirtPositionsString = input.slice(2, -1).toString().split(',');
+var drivingInstructions = input.slice(-1)[0].split('');
 
 class Room {
   constructor() {

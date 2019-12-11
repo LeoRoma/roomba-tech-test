@@ -45,8 +45,11 @@ describe("Hoover", () => {
       expect(hoover.positions.y).toEqual(6);
       expect(hoover.moves('N')).toEqual("Sorry can't go further");
       // expect(hoover.moves).toThrowError("Sorry can't go further");
-
     });
+
+    test('returning the output values', () => {
+      expect(hoover.moves('NNESEESWNWW')).toEqual('1 3');
+    })
   });
 
   test('dirt patch collected', () => {

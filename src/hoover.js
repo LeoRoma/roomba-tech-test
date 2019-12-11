@@ -2,7 +2,7 @@ const Room = require('./room');
 
 this.room = new Room();
 
-let steps = this.room.drivingInstructions;
+var steps = this.room.drivingInstructions;
 
 class Hoover {
   constructor() {
@@ -25,7 +25,7 @@ class Hoover {
       var step = steps[i];
 
       this.cleanDirt();
-      
+      // console.log(`step ${i}`)
       if (step === 'N') {
         this.positions.y++
         if (this.positions.y > this.dimension.y) {
@@ -51,14 +51,15 @@ class Hoover {
         };
       };
     };
+    return(`${this.positions.x} ${this.positions.y}`);
   };
 
   cleanDirt() {
     // console.log(dirtPositions)
-    this.dirtPositions.forEach(patch => {
+    this.dirtPositions.forEach(dirtPosition => {
 
-      if (this.positions.x === patch.x && this.positions.y === patch.y) {
-        this.dirtPositions.splice(this.dirtPositions.indexOf(patch, 1));
+      if (this.positions.x === dirtPosition.x && this.positions.y === dirtPosition.y) {
+        this.dirtPositions.splice(this.dirtPositions.indexOf(dirtPosition, 1));
         this.dirtCollect += 1;
       }
     })
@@ -66,4 +67,7 @@ class Hoover {
   }
 }
 
+let hoover = new Hoover;
+console.log(hoover.moves(steps));
+console.log(hoover.cleanDirt());
 module.exports = Hoover; 
