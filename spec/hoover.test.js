@@ -7,6 +7,10 @@ describe("Hoover", () => {
     hoover = new Hoover;
   });
 
+  xtest('get dirt position from Room class', () => {
+    expect(hoover.getRoomFunction()).toEqual([{ x: 1, y: 0 }, { x: 2, y: 2 }, { x: 2, y: 3 }])
+  });
+
   describe('moves', () => {
     test('increase y by 1 step with N', () => {
       hoover.moves('N');
@@ -49,7 +53,7 @@ describe("Hoover", () => {
     });
   });
 
-  xtest('dirt patch collected', () => {
+  test('dirt patch collected', () => {
     hoover.moves('NNESEESWNWW');
     hoover.cleanDirt();
     expect(hoover.dirtCollect).toEqual(1);

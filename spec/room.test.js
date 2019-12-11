@@ -19,13 +19,13 @@ describe("Room", () => {
     expect(room.getHooverPositions()).toEqual({ x: 1, y: 2 });
   });
 
-  // test('get the steps', () => {
-  //   expect(room.getDrivingInstructions()).toEqual ([
-  //     'N', 'N', 'E', 'S',
-  //     'E', 'E', 'S', 'W',
-  //     'N', 'W', 'W'
-  //   ]);
-  // });
+  xtest('get the steps', () => {
+    expect(room.getDrivingInstructions()).toEqual ([
+      'N', 'N', 'E', 'S',
+      'E', 'E', 'S', 'W',
+      'N', 'W', 'W'
+    ]);
+  });
 
 
 
