@@ -18,7 +18,7 @@ class Hoover {
       x: this.room.hooverPositions.x,
       y: this.room.hooverPositions.y
     };
-    this.patchesfOfDirt = this.room.dirtPositions;
+    this.dirtPositions = dirtPositions;
     // console.log(this.room.dirtPositions)
     this.dirtCollect = 0;
   };
@@ -63,28 +63,19 @@ class Hoover {
 
   cleanDirt() {
     // console.log(dirtPositions)
-    dirtPositions.forEach(patch => {
-      // console.log("dirt")
-      // console.log(patch.x)
-      // console.log(patch.y)
-      // console.log("hoover")
-      // console.log(this.positions.x)
-      // console.log(this.positions.y)
+    this.dirtPositions.forEach(patch => {
+      
       if (this.positions.x === patch.x && this.positions.y === patch.y) {
+        this.dirtPositions.splice(this.dirtPositions.indexOf(patch, 1));
         this.dirtCollect += 1;
-        // dirtPositions.splice(dirtPositions.indexOf(patch, 1)
       }
     })
-
-    return `${this.amountOfDirt}`
+    return `${this.dirtCollect}`;
   }
-  // cleanDirt() {
 
-  //   if (this.positions.x == this.dirtPositions.dP3.x && this.positions.y == this.dirtPositions.dP3.y) {
-  //     this.dirtCollect += 1;
-  //   }
-  // };
-
+  // removeDirt() {
+  //   this.dirtPositions.splice(this.dirtPositions.indexOf(patch, 1))
+  // }
 
 }
 
