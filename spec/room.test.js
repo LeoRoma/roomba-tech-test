@@ -8,15 +8,11 @@ describe("Room", () => {
   });
 
   test('get the size of the room', () => {
-    expect(room.getRoomDimension()).toEqual({"x": 5, "y": 5});
+    expect(room.getRoomDimension()).toEqual({ "x": 5, "y": 5 });
   });
 
-  xtest('get the position of the dirt', () => {
-    expect(room.getDirtPosition()).toEqual({
-      dP1: { x: '1', y: '0' },
-      dP2: { x: '2', y: '2' },
-      dP3: { x: '2', y: '3' }
-    });
+  test('get the position of the dirt', () => {
+    expect(room.getDirtPosition()).toEqual([{ x: 1, y: 0 }, { x: 2, y: 2 }, { x: 2, y: 3 }]);
   });
 
   test('get the start position', () => {
@@ -31,11 +27,6 @@ describe("Room", () => {
   //   ]);
   // });
 
-  xtest('dirt patch collected', () => {
-    room.moves('NNESEESWNWW');
-    room.cleanDirt();
-    expect(room.dirtCollect).toEqual(1);
-  });
 
 
 });

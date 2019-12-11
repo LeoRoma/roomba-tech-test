@@ -22,7 +22,6 @@ class Hoover {
     this.patchesfOfDirt = this.room.dirtPositions;
     // console.log(this.patchesfOfDirt)
     this.dirtCollect = 0;
-
   };
 
   moves(steps) {
@@ -34,7 +33,7 @@ class Hoover {
       if (step === 'N') {
         this.positions.y++
         if (this.positions.y > this.dimension.y) {
-          throw "Sorry can't go further";
+          return "Sorry can't go further";
         };
       };
       if (step === 'S') {

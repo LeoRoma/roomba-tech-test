@@ -13,14 +13,6 @@ var dirtPositionsString = input.slice(2, -1).toString().split(',');
 var dirtPositions = [];
 // console.log(dirtPositions);
 
-dirtPositionsString.map(patchesOfDirt => {
-  let eachPatchOfDirt = patchesOfDirt.split(' ')
-  let patchOfDirtX = Number(eachPatchOfDirt[0])
-  let patchOfDirtY = Number(eachPatchOfDirt[1])
-  let patchOfDirt = new Dirt(patchOfDirtX, patchOfDirtY)
-  dirtPositions.push(patchOfDirt)
-  return patchOfDirt
-})
 // console.log(this.dirtPositions)
 var drivingInstructions = input.slice(-1)[0].split('');
 
@@ -46,13 +38,21 @@ class Room {
 
   };
 
-  
+
 
   getRoomDimension() {
     return this.roomDimension;
   };
 
   getDirtPosition() {
+    dirtPositionsString.map(patchesOfDirt => {
+      let eachPatchOfDirt = patchesOfDirt.split(' ');
+      let patchOfDirtX = Number(eachPatchOfDirt[0]);
+      let patchOfDirtY = Number(eachPatchOfDirt[1]);
+      let patchOfDirt = new Dirt(patchOfDirtX, patchOfDirtY);
+      this.dirtPositions.push(patchOfDirt);
+      return patchOfDirt;
+    })
     return this.dirtPositions;
   };
 
