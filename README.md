@@ -35,7 +35,7 @@ NNESEESWNWW
 Program output should be printed to the standard output (STDOUT) of the terminal (or equivalent in the browser, console.log())
 
 - The first line of your program output should display the X and Y coordinates marking the position of the hoover after processing all commands.
-- The second line of the program output should display the number of patches of dirt the robot cleaned up. Example (matching the input above):
+- The second line of the program output should display the number of patches of dirt the robot cleaned up. Example (matching the input above):<p>
 -1 3<p>
 -1<p>
 
