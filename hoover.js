@@ -1,32 +1,36 @@
 const Room = require('./room');
 
-this.instanceOfRoom = new Room();
 
-var steps = this.instanceOfRoom.drivingInstructions;
+
+this.room = new Room();
+
+var steps = this.room.drivingInstructions;
 
 
 class Hoover {
   constructor() {
-    this.instanceOfRoom = new Room();
+    this.room = new Room();
 
     this.dimension = {
-      x: this.instanceOfRoom.roomDimension.x,
-      y: this.instanceOfRoom.roomDimension.y
+      x: this.room.roomDimension.x,
+      y: this.room.roomDimension.y
     };
     this.positions = {
-      x: this.instanceOfRoom.hooverPositions.x,
-      y: this.instanceOfRoom.hooverPositions.y
+      x: this.room.hooverPositions.x,
+      y: this.room.hooverPositions.y
     };
+    this.patchesfOfDirt = this.room.dirtPositions;
+    // console.log(this.patchesfOfDirt)
     this.dirtCollect = 0;
 
   };
 
   moves(steps) {
     // console.log(steps.length)
-    for (var i = 0; i < steps.length; i++) {
+    for (var i = 0; i < 4; i++) {
       var step = steps[i];
-      // this.cleanDirt();
-      
+      this.cleanDirt();
+
       if (step === 'N') {
         this.positions.y++
         if (this.positions.y > this.dimension.y) {
@@ -54,6 +58,21 @@ class Hoover {
     };
   };
 
+  cleanDirt() {
+
+    this.room.dirtPositions.forEach(patch => {
+      console.log(patch.x)
+      console.log(this.positions.x)
+      if (this.positions.x === patch.x && this.positions.y === patch.y && this.amountOfDirt === 0) {
+
+        this.room.dirtPositions.splice(this.room.dirtPositions.indexOf(patch, 1))
+        this.amountOfDirt += 1
+
+      }
+    })
+
+    return `${this.amountOfDirt}`
+  }
   // cleanDirt() {
 
   //   if (this.positions.x == this.dirtPositions.dP3.x && this.positions.y == this.dirtPositions.dP3.y) {

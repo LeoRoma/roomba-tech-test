@@ -48,7 +48,7 @@ describe("Hoover", () => {
     });
   });
 
-  xtest('dirt patch collected', () => {
+  test('dirt patch collected', () => {
     hoover.moves('NNESEESWNWW');
     hoover.cleanDirt();
     expect(hoover.dirtCollect).toEqual(1);

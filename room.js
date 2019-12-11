@@ -1,21 +1,27 @@
+const Dirt = require('./dirt')
+// this.instanceOfDirt = new Dirt;
+
 var fs = require('fs');
+
+
 var input = fs.readFileSync('input.txt').toString().split("\n");
 
 var roomDimension = input[0].split(' ');
-
-
 var hooverPositionString = input[1].toString().split(' ');
-var hooverPositions = {
-  x: Number(hooverPositionString[0]),
-  y: Number(hooverPositionString[1])
-};
 
+var dirtPositionsString = input.slice(2, -1).toString().split(',');
+var dirtPositions = [];
+// console.log(dirtPositions);
 
-
-var dirtPosition1 = input[2].split(' ');
-var dirtPosition2 = input[3].split(' ');
-var dirtPosition3 = input[4].split(' ');
-// console.log(dirtPosition1)
+dirtPositionsString.map(patchesOfDirt => {
+  let eachPatchOfDirt = patchesOfDirt.split(' ')
+  let patchOfDirtX = Number(eachPatchOfDirt[0])
+  let patchOfDirtY = Number(eachPatchOfDirt[1])
+  let patchOfDirt = new Dirt(patchOfDirtX, patchOfDirtY)
+  dirtPositions.push(patchOfDirt)
+  return patchOfDirt
+})
+// console.log(this.dirtPositions)
 var drivingInstructions = input.slice(-1)[0].split('');
 
 
@@ -23,22 +29,8 @@ var drivingInstructions = input.slice(-1)[0].split('');
 class Room {
   constructor() {
     this.roomDimension = {
-      x: roomDimension[0],
-      y: roomDimension[1]
-    };
-    this.dirtPositions = {
-      dP1: {
-        x: dirtPosition1[0],
-        y: dirtPosition1[1]
-      },
-      dP2: {
-        x: dirtPosition2[0],
-        y: dirtPosition2[1]
-      },
-      dP3: {
-        x: dirtPosition3[0],
-        y: dirtPosition3[1],
-      }
+      x: Number(roomDimension[0]),
+      y: Number(roomDimension[1])
     };
     this.hooverPositions = {
       x: Number(hooverPositionString[0]),
@@ -47,10 +39,14 @@ class Room {
 
     this.drivingInstructions = drivingInstructions;
 
+    this.dirtPositions = dirtPositions;
+    // console.log(this.dirtPositions);
     this.dirtCollect = 0;
     // console.log(this.hooverPositions)
+
   };
 
+  
 
   getRoomDimension() {
     return this.roomDimension;
