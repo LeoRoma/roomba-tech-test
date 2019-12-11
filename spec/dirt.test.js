@@ -7,8 +7,8 @@ describe("Dirt", () => {
     dirt = new Dirt;
   });
 
-  test('hello world', () => {
-    expect(dirt.hello("hello")).toEqual("hello");
-  });
+  test('testing test', () => {
+    expect(dirt.hello('hello world')).toEqual('hello world');
+  })
 });
   

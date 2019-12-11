@@ -7,10 +7,6 @@ describe("Hoover", () => {
     hoover = new Hoover;
   });
 
-  xtest('get dirt position from Room class', () => {
-    expect(hoover.getRoomFunction()).toEqual([{ x: 1, y: 0 }, { x: 2, y: 2 }, { x: 2, y: 3 }])
-  });
-
   describe('moves', () => {
     test('increase y by 1 step with N', () => {
       hoover.moves('N');
@@ -43,13 +39,13 @@ describe("Hoover", () => {
     });
 
     test('position of the hoover exceed the perimeter', () => {
-      for (let i = 0; i < 4; i++){
+      for (let i = 0; i < 4; i++) {
         hoover.moves('N');
       };
       expect(hoover.positions.y).toEqual(6);
       expect(hoover.moves('N')).toEqual("Sorry can't go further");
       // expect(hoover.moves).toThrowError("Sorry can't go further");
- 
+
     });
   });
 

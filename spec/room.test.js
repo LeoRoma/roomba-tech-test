@@ -19,7 +19,7 @@ describe("Room", () => {
     expect(room.getHooverPositions()).toEqual({ x: 1, y: 2 });
   });
 
-  xtest('get the steps', () => {
+  test('get the steps', () => {
     expect(room.getDrivingInstructions()).toEqual ([
       'N', 'N', 'E', 'S',
       'E', 'E', 'S', 'W',

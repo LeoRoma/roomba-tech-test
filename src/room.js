@@ -1,24 +1,13 @@
 const Dirt = require('./dirt')
 
-// this.instanceOfDirt = new Dirt;
-
 var fs = require('fs');
-
 
 var input = fs.readFileSync('input.txt').toString().split("\n");
 
-var roomDimension = input[0].split(' ');
-var hooverPositionString = input[1].toString().split(' ');
-
-var dirtPositionsString = input.slice(2, -1).toString().split(',');
-var dirtPositions = [];
-// console.log(dirtPositions);
-
-
-// console.log(this.dirtPositions)
-var drivingInstructions = input.slice(-1)[0].split('');
-
-
+let roomDimension = input[0].split(' ');
+let hooverPositionString = input[1].toString().split(' ');
+let dirtPositionsString = input.slice(2, -1).toString().split(',');
+let drivingInstructions = input.slice(-1)[0].split('');
 
 class Room {
   constructor() {
@@ -32,52 +21,32 @@ class Room {
     };
 
     this.drivingInstructions = drivingInstructions;
-
-    // this.dirtPositions = dirtPositions;
-    // console.log(this.dirtPositions);
-    this.dirtCollect = 0;
-    // console.log(this.hooverPositions)
-
+    this.dirtPositions = [];
+    dirtPositionsString.map(patchesOfDirt => {
+      let eachPatchOfDirt = patchesOfDirt.split(' ')
+      let patchOfDirtX = Number(eachPatchOfDirt[0])
+      let patchOfDirtY = Number(eachPatchOfDirt[1])
+      let patchOfDirt = new Dirt(patchOfDirtX, patchOfDirtY)
+      this.dirtPositions.push(patchOfDirt)
+      return patchOfDirt
+    })
   };
-
-
 
   getRoomDimension() {
     return this.roomDimension;
   };
 
   getDirtPosition() {
-    var dirtPositions = []
-    dirtPositionsString.map(patchesOfDirt => {
-      let eachPatchOfDirt = patchesOfDirt.split(' ')
-      let patchOfDirtX = Number(eachPatchOfDirt[0])
-      let patchOfDirtY = Number(eachPatchOfDirt[1])
-      let patchOfDirt = new Dirt(patchOfDirtX, patchOfDirtY)
-      dirtPositions.push(patchOfDirt)
-      return patchOfDirt
-    })
-    return dirtPositions;
+    return this.dirtPositions;
   };
 
   getHooverPositions() {
     return this.hooverPositions;
   };
 
-  // getDrivingInstructions() {
-  //   console.log(this.getDirtPosition());
-  // };
-
-
-
-  cleanDirt() {
-
-    if (this.hooverPositions.x == this.dirtPositions.dP3.x && this.hooverPositions.y == this.dirtPositions.dP3.y) {
-      this.dirtCollect += 1;
-    }
+  getDrivingInstructions() {
+    return (this.drivingInstructions);
   };
-
-
 }
-
 
 module.exports = Room; 
