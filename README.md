@@ -48,8 +48,20 @@ Program output should be printed to the standard output (STDOUT) of the terminal
 
 # Approach
 
-- I started with writing the input in the `input.txt` file.
+- I started with writing on a paper the grid with x and y axes.
+- Following the given input, I started to track down the main points from the coordinate.
+- At the end I was drawing down the track done by the hoover following "N", "E", etc.
+- In terms of code I started with writing the input in the `input.txt` file.
 - Using `fs` to fetch the text file into Javascript.
 - String manipulation to get the desired data to work with.
-- I prefered to work in only with "Room" class and later I extracted two more classes.
-- 
+- I prefered to work in only with "Room" class and later I extracted two more classes (Dirt and Hoover).
+- In class Hoover is where there is the physical action on the grid.
+- The Room class is where handle the data retrieved from input.txt and distributed to the other two classes.
+- Finally Dirt class holds the coordinates for the patches of dirt.
+- I built the application by writing tests for each function implemented and pushed on Github before to write new code.
+
+# Thoughts
+
+- To be my first tech-test I had a lot of fun even if I didn't completed, I felt that I learned a lot about Javascript ES6 and Jest, I faced new logics that I didn't face before.
+- I think I can improve with the data handle by using node.js modules.export to have a better architecture of the program.
+- The most important I have enjoyed.
