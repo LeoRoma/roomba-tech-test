@@ -1,8 +1,8 @@
-const Hoover = require('./hoover.js');7
+const Hoover = require('./hoover.js'); 7
 
 describe("Hoover", () => {
   let hoover;
-  
+
   beforeEach(() => {
     hoover = new Hoover;
   });
@@ -37,6 +37,15 @@ describe("Hoover", () => {
       expect(hoover.positions.x).toEqual(1);
       expect(hoover.positions.y).toEqual(3);
     });
+
+    test('position of the hoover exceed the perimeter', () => {
+      for (let i = 0; i < 4; i++){
+        hoover.moves('N');
+      };
+      expect(hoover.positions.y).toEqual(6);
+      expect(hoover.moves).toThrowError("Sorry can't go further");
+ 
+    });
   });
 
   xtest('dirt patch collected', () => {
@@ -44,9 +53,6 @@ describe("Hoover", () => {
     hoover.cleanDirt();
     expect(hoover.dirtCollect).toEqual(1);
   });
-
-  
 });
-  
 
- 
+

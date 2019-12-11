@@ -8,7 +8,7 @@ describe("Room", () => {
   });
 
   test('get the size of the room', () => {
-    expect(room.getRoomDimension()).toEqual(['5', '5']);
+    expect(room.getRoomDimension()).toEqual({"x": "5", "y": "5"});
   });
 
   test('get the position of the dirt', () => {
@@ -30,37 +30,6 @@ describe("Room", () => {
   //     'N', 'W', 'W'
   //   ]);
   // });
-  describe('moves', () => {
-    test('increase y by 1 step with N', () => {
-      room.moves('N');
-      expect(room.hooverPositions.x).toEqual(1);
-      expect(room.hooverPositions.y).toEqual(3);
-    });
-
-    test('decrease y by 1 step with S', () => {
-      room.moves('S');
-      expect(room.hooverPositions.x).toEqual(1);
-      expect(room.hooverPositions.y).toEqual(1);
-    });
-
-    test('increase x by 1 step with E', () => {
-      room.moves('E');
-      expect(room.hooverPositions.x).toEqual(2);
-      expect(room.hooverPositions.y).toEqual(2);
-    });
-
-    test('decrease x by 1 step with W', () => {
-      room.moves('W');
-      expect(room.hooverPositions.x).toEqual(0);
-      expect(room.hooverPositions.y).toEqual(2);
-    });
-
-    test('all steps from the input', () => {
-      room.moves('NNESEESWNWW');
-      expect(room.hooverPositions.x).toEqual(1);
-      expect(room.hooverPositions.y).toEqual(3);
-    });
-  });
 
   xtest('dirt patch collected', () => {
     room.moves('NNESEESWNWW');

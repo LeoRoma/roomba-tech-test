@@ -1,32 +1,15 @@
 var fs = require('fs');
 var input = fs.readFileSync('input.txt').toString().split("\n");
 
-// var coordinatesString = input.slice(0, -1).split(' ');
-// var coordinatesInt = coordinatesString.map(Number);
-// var roomDimension = [];
-// var hooverPositionToInt = [];
-// var dirtPositions = []
-// console.log(coordinates.length);
-
-// function getCoordinate(coordinates){
-
-//   var coordinates = input.slice(0, -2);
-//   console.log(coordinates.length);
-//   for(let i = 0; i < coordinates.length; i++){
-//     // console.log(coordinates.length);
-//     if(coordinates[i].index === 0){
-//       roomDimension.push(coordinates[i]);
-//     }
-//   }
-// }
-// console.log(coordinatesInt);
-
-
 var roomDimension = input[0].split(' ');
 
-var hooverPositionString = input[1].split(' ');
-// console.log(hooverPositionString)
-var hooverPositionToInt = hooverPositionString.map(Number);
+
+var hooverPositionString = input[1].toString().split(' ');
+var hooverPositions = {
+  x: Number(hooverPositionString[0]),
+  y: Number(hooverPositionString[1])
+};
+
 
 
 var dirtPosition1 = input[2].split(' ');
@@ -39,7 +22,10 @@ var drivingInstructions = input.slice(-1)[0].split('');
 
 class Room {
   constructor() {
-    this.roomDimension = roomDimension;
+    this.roomDimension = {
+      x: roomDimension[0],
+      y: roomDimension[1]
+    };
     this.dirtPositions = {
       dP1: {
         x: dirtPosition1[0],
@@ -55,13 +41,14 @@ class Room {
       }
     };
     this.hooverPositions = {
-      x: hooverPositionToInt[0],
-      y: hooverPositionToInt[1],
+      x: Number(hooverPositionString[0]),
+      y: Number(hooverPositionString[1])
     };
+
     this.drivingInstructions = drivingInstructions;
-    // console.log(this.hooverPositions)
-    // console.log(this.dirtPositions);
+
     this.dirtCollect = 0;
+    // console.log(this.hooverPositions)
   };
 
 
@@ -81,26 +68,7 @@ class Room {
   //   return this.drivingInstructions;
   // };
 
-  moves(drivingInstructions) {
-    for (var i = 0; i < drivingInstructions.length; i++) {
-      var step = drivingInstructions[i];
-      // console.log("n counter")
-      this.cleanDirt();
 
-      if (step === 'N') {
-        this.hooverPositions.y++
-      }
-      if (step === 'S') {
-        this.hooverPositions.y--
-      }
-      if (step === 'E') {
-        this.hooverPositions.x++
-      }
-      if (step === 'W') {
-        this.hooverPositions.x--
-      }
-    };
-  };
 
   cleanDirt() {
 
