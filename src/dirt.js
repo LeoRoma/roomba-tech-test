@@ -3,10 +3,6 @@ class Dirt {
     this.x = x;
     this.y = y;
   }
-
-  hello(string){
-    return 'hello world';
-  }
 }
 
 module.exports = Dirt; 
