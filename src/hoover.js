@@ -9,8 +9,8 @@ class Hoover {
     this.room = new Room();
 
     this.dimension = {
-      x: this.room.roomDimension.x,
-      y: this.room.roomDimension.y
+      x: this.room.dimension.x,
+      y: this.room.dimension.y
     };
     this.positions = {
       x: this.room.hooverPositions.x,

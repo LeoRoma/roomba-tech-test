@@ -4,16 +4,16 @@ var fs = require('fs');
 
 var input = fs.readFileSync('input.txt').toString().split("\n");
 
-var roomDimension = input[0].split(' ');
+var dimension = input[0].split(' ');
 var hooverPositionString = input[1].toString().split(' ');
 var dirtPositionsString = input.slice(2, -1).toString().split(',');
 var drivingInstructions = input.slice(-1)[0].split('');
 
 class Room {
   constructor() {
-    this.roomDimension = {
-      x: Number(roomDimension[0]),
-      y: Number(roomDimension[1])
+    this.dimension = {
+      x: Number(dimension[0]),
+      y: Number(dimension[1])
     };
     this.hooverPositions = {
       x: Number(hooverPositionString[0]),
@@ -33,7 +33,7 @@ class Room {
   };
 
   getRoomDimension() {
-    return this.roomDimension;
+    return this.dimension;
   };
 
   getDirtPosition() {
